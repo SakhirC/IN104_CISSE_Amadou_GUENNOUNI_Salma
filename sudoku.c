@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#DEFINE SIZE 9
+#define SIZE 9
 
 
 int area[SIZE][SIZE];
 
 
-int * fill_diag(int * area){
+int * fill_diag(int area[SIZE][SIZE]){
 
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
@@ -30,12 +30,12 @@ int * fill_diag(int * area){
                 A=true;
                 for(int k=0;k<i+1;k++){
                     for(int l=0;l<j;l++){
-                        if(area[K][l]==a){A=false;}
+                        if(area[k][l]==a){A=false;}
                     }
                 }
             }
             while(B==false){
-                brand()%9+1;
+                b=rand()%9+1;
                 B=true;
                 for(int k=0;k<i+1;k++){
                     for(int l=0;l<j;l++){
@@ -63,7 +63,7 @@ int * fill_diag(int * area){
 }
 
 
-
+/*
 bool safe_number(int i, int j; int n; int * area){
     bool A=true
     for(int k=0;k<SIZE & k!= i;k++){
@@ -87,3 +87,4 @@ void fill(int * area;int i;int j){
     }
 
 }
+*/
