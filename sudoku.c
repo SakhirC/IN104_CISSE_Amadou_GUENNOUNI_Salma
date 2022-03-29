@@ -63,7 +63,7 @@ void fill_diag(int area[SIZE][SIZE]){
 
 
 }
-bool safe_number(int i, int j; int n; int * area){
+/*bool safe_number(int i, int j; int n; int * area){
     bool A=true
     for(int k=0;k<SIZE & k!= i;k++){
         for(int l=0;l<SIZE & l!=j ;l++){
@@ -72,7 +72,7 @@ bool safe_number(int i, int j; int n; int * area){
     }
     return A;
 }
-
+*/
 int main(){
     int area[SIZE][SIZE];
     for(int i=0;i<9;i++){
