@@ -8,61 +8,33 @@ int area[SIZE][SIZE];
 
 
 void fill_diag(int area[SIZE][SIZE]){
-
+for(int y=0;y<3;y++){
     for(int i=0;i<3;i++){
         for(int j=0;j<3;j++){
            int a=rand()%9+1;
-           int b=rand()%9+1;
-           int c=rand()%9+1;
            bool A=true;
-           bool B=true;
-           bool C=true;
            for(int k=0;k<3;k++){
                for(int l=0;l<3;l++){
-                   if(area[k][l]==a){A=false;}
-                   if(area[k+3][l+3]==b){B=false;}
-                   if(area[k+6][l+6]==c){C=false;}
+                   if(area[k+3*y][l+3*y]==a){A=false;}
                }
            }
-
             while(A==false){
                 a=rand()%9+1;
                 A=true;
                 for(int k=0;k<3;k++){
                     for(int l=0;l<3;l++){
-                        if(area[k][l]==a){A=false;}
+                        if(area[k+3*y][l+3*y]==a){A=false;}
                     }
                 }
             }
-            printf("\n");
-            while(B==false){
-                b=rand()%9+1;
-                B=true;
-                for(int k=0;k<3;k++){
-                    for(int l=0;l<3;l++){
-                        if(area[k+3][l+3]==b){B=false;}
-                    }
-                }
-            }
-            while(C==false){
-                c=rand()%9+1;
-                C=true;
-                for(int k=0;k<3;k++){
-                    for(int l=0;l<3;l++){
-                        if(area[k+6][l+6]==c){C=false;}
-                    }
-                }
-            }
+        
             
-            area[i][j]=a;
-            area[i+3][j+3]=b;
-            area[i+6][j+6]=c;       
-
+            area[i+3*y][j+3*y]=a;
         }
     }
-
-
 }
+}
+
 /*bool safe_number(int i, int j; int n; int * area){
     bool A=true
     for(int k=0;k<SIZE & k!= i;k++){
