@@ -56,56 +56,57 @@ for(int y=0;y<3;y++){
 
 bool safe_number(int area[SIZE][SIZE],int i, int j, int n){
     bool A=true;
-    for(int k=0;k<SIZE & k!= i;k++){
+    for(int k=0;k<SIZE ; k++){
             if (area[k][j]==n){A=false;}
     }
 
-    for(int l=0;l<SIZE & l!=j ;l++){
+    for(int l=0;l<SIZE  ;l++){
         if (area[i][l]==n){A=false;}
     }
     int l = i/3;
     int c = j/3;
 
     for(int m =3*l;m<3*l+3;m++){
-        for(int p =3*c;p<3*c+3;p++){
-            if (area[m][p]==n){A=false;}
+        for(int p =3*c;p<3*c+3 ;p++){
+            if (area[m][p]==n  ){A=false;}
         }
 
     }
     return A;
 }
-void  fill(int area[SIZE][SIZE], int i, int j){
-      
+ bool fill(int area[SIZE][SIZE], int n){
 
-        if(i<SIZE & j<SIZE & i>=0 & j>=0){
-
-            if(area[i][j]==0){
-                int a=rand()%9+1;
-            if (safe_number(area,i,j,a)){
-
-            fill(area,i+1,j-1);
-            fill(area,i,j+1);
-            fill(area,i+1,j);
-            area[i][j]=a;
+        if(n>=SIZE*SIZE){
+            return true;
         }
 
-        else{
-            a=rand()%9+1;
-            fill(area,i,j);
+        int i=n/SIZE;
+        int j=n%SIZE;
 
-        }
-        }else {
-            fill(area,i+1,j-1);
-            fill(area,i,j+1);
-            fill(area,i+1,j);
+        if(area[i][j]!=0){
+            return fill(area,n+1);
         }
 
-    
-}
-}
+        //int a=rand()%9+1;
+        //while(safe_number(area,i,j,a)==false){
+        for(int a=1;a<10;a++){
+            if(safe_number(area,i,j,a)){
+                area[i][j]=a;
+
+                if(fill(area,n+1)){
+                    return true;
+                }
+                
+            }
+        }
+    area[i][j]=0;
+
+    return false;
+ }
 
 
 int main(){
+    srand(time(NULL));
     int area[SIZE][SIZE];
     for(int i=0;i<9;i++){
         for(int j=0;j<9;j++){
@@ -115,8 +116,14 @@ int main(){
 
 
     fill_diag(area);
-    fill(area,0,0);
+    bool A=fill(area,0);
+    if(A==false){
+        printf("bug \n");
 
+    }
+    affichage(area);
+
+    
     for(int w=0;w<K;w++){
         int j=rand()%9+1;
         int i=rand()%9+1;
@@ -130,8 +137,6 @@ int main(){
     }
 
 
-
-    affichage(area);
 
     int x;
     int y;
@@ -167,6 +172,7 @@ while(reponse!=1){
       printf("Are you done ? (yes=1 no=other entier : " );
       int d=scanf("%d",&reponse);
     }
+
 
 
 
