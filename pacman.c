@@ -32,8 +32,11 @@ struct ghost{
 
 int main{
     struct ghost inighost=malloc(sizeof(struc ghost));
-    struct Pacman inipacman=malloc(sizeof(struct PacMan));
-    inipacman.
+    struct Pacman pacman=malloc(sizeof(struct PacMan));
+    pacman.coord.x=rand()/width;
+    pacman.coord.y=rand()/height;
+    pacman.chase=false;
+    
 
 
 }
