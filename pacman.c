@@ -29,3 +29,11 @@ struct ghost{
 }
 
 
+
+int main{
+    struct ghost inighost=malloc(sizeof(struc ghost));
+    struct Pacman inipacman=malloc(sizeof(struct PacMan));
+    inipacman.
+
+
+}
