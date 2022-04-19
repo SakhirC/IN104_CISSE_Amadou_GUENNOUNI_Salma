@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <time.h>
 #define SIZE 9
-#define K 2
+#define K 20
 
 bool is_fill(int area[SIZE][SIZE]){
     int somme =0;
@@ -172,7 +172,6 @@ while(reponse!=1){
       printf("Are you done ? (yes=1 no=other entier : " );
       int d=scanf("%d",&reponse);
     }
-
 
 
 

@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
 #define height 20
 #define width 20
 #define number 4
