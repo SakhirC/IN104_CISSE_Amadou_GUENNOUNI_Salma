@@ -5,6 +5,7 @@
 #define width 20
 #define number 4
 #define nb_lives 3
+#define nb_obstacles 50
 
 
 
@@ -44,5 +45,11 @@ int main{
     pacman.ny=0;
     
     char area [width][height];
-    
+    for (int i=0; i<nb_obstacles; ++i) {
+        a=rand()/width;
+        b=rand()/height;
+        while area[a][b] != NULL {
+        area[a][b]="#";
+        }
+    }
 }
