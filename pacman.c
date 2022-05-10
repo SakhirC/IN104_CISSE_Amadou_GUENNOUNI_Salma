@@ -1,48 +1,118 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#define height 20
-#define width 20
-#define number 4
+#include <string.h>
+#include "structure.h"
+#include "init_ghosts.h"
+#include "move.h"
+#include "move_pac.h"
+#define height 60
+#define width 30
+#define nb_ghosts 11
 #define nb_lives 3
+#define nb_obstacles 50
 
 
 
-struct coor{
-    int x;
-    int y;
+void check(struct PacMan pacman, char area[width][height]){
+    if(pacman.lives<0){
+        printf("Vous avez perdu en ayant %d comme score \n",pacman.lives);
+
+    }
+    else{
+        for(int i=0;i<width;i++){
+            for(int j=0;j<height;j++){
+                printf("%c",area[i][j]);
+            }
+            printf("\n");
+        }
+    }
 }
 
-struct PacMan{
-    struct coor coord;
-    int nx;
-    int ny;
-    int lives;
-    int food;
-    bool chase;
+void affichage(char area[width][height]){
+    for(int i=0;i<width;i++){
+            for(int j=0;j<height;j++){
+                printf("%c",area[i][j]);
+            }
+            printf("\n");
+        };
+
+
 }
 
-struct ghost{
-    struct coor coord;
-    int nx;
-    int ny;
-    bool chase;
+/* void set_cursor_position(int x, int y)
+{
+   //Initialize the coordinates
+   COORD coord = { x, y };
+   //Set the position
+   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
 
+void hidecursor()
+{
+   HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+   CONSOLE_CURSOR_INFO info;
+   info.dwSize = 100;
+   info.bVisible = FALSE;
+   SetConsoleCursorInfo(consoleHandle, &info);
+} */
 
-int main{
-    struct ghost inighost=malloc(sizeof(struc ghost));
 
-    struct Pacman pacman=malloc(sizeof(struct PacMan));
-    pacman.coord.x=rand()/width;
-    pacman.coord.y=rand()/height;
+int main(){
+    struct ghost allghosts[nb_ghosts];
+
+
+    struct PacMan pacman;
+    pacman.coord.x=1;
+    pacman.coord.y=1;
     pacman.chase=false;
     pacman.lives=nb_lives;
     pacman.food=0;
     pacman.nx=0;
     pacman.ny=0;
     
-    char area [width][height];
-    
+    char area [width][height]=
+    {
+   { "############################################################" },
+   { "#                                                          #" },
+   { "#                                                          #" },
+   { "#        # # # # #          #             # # # # # #      #" },
+   { "#        #       #         # #            #                #" },
+   { "#        #       #        #   #           #                #" },
+   { "#        # # # # #       #     #          #                #" },
+   { "#        #              # # # # #         #                #" },
+   { "#        #             #         #        #                #" },
+   { "#        #            #           #       #                #" },
+   { "#        #           #             #      #                #" },
+   { "#        #          #               #     # # # # # #      #" },
+   { "#                                                          #" },
+   { "#                                                          #" },
+   { "#                                                          #" },
+   { "#        ##        ##           #          ##        #     #" },
+   { "#        # #      # #          # #         # #       #     #" },
+   { "#        #  #    #  #         #   #        #  #      #     #" },
+   { "#        #    # #   #        #     #       #   #     #     #" },
+   { "#        #     #    #       # # # # #      #    #    #     #" },
+   { "#        #          #      #         #     #     #   #     #" },
+   { "#        #          #     #           #    #      #  #     #" },
+   { "#        #          #    #             #   #       # #     #" },
+   { "#        #          #   #               #  #        ##     #" },
+   { "#                                                          #" },
+   { "#                                                          #" },
+   { "#                                                          #" },
+   { "#                                                          #" },
+   { "#                                                          #" },
+   { "############################################################" }};
+
+
+affichage(area);
+   
+
+/* init_ghosts(allghosts,area);
+
+
+affichage(area); */
+
+
 }

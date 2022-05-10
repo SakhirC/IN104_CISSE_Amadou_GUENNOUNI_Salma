@@ -1,0 +1,2 @@
+sudo: affichage.c affichage.h fill_diag.c fill_diag.h fill.c fill.h is_fill.c is_fill.h level.c level.h modification.c modification.h remplissage.c remplissage.h safe_number.c safe_number.h sudoku.c
+	gcc  affichage.c affichage.h fill_diag.c fill_diag.h fill.c fill.h is_fill.c is_fill.h level.c level.h modification.c modification.h remplissage.c remplissage.h safe_number.c safe_number.h sudoku.c
