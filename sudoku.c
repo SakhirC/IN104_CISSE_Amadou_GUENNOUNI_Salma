@@ -38,8 +38,9 @@ int main(){
     }
 
     //affichage(area)
+
     //definition du niveau de la grille
-    level(K,area);
+     level(area);
     
     //remplissage progressif de la grille par l'utilisateur
     remplissage(area);
