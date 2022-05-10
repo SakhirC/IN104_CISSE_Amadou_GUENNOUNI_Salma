@@ -37,24 +37,24 @@ void move(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area[wid
         int b=allghosts[i].coord.y;
         int newa=a;
         int newb=b;
-        if((strcmp(&area[(a+1)/width ][b], "." )==0)|| (strcmp(&area[(a+1)/width ][b], " ")==0)){ 
+        if(area[(a+1)/width ][b]=='.' || area[(a+1)/width ][b]==' '){ 
             newa=a+1/width;
         }
-        else if((strcmp(&area[(a-1)/width ][b] , ".")==0) || (strcmp(&area[(a-1)/width ][b], " ")==0 )){
+        else if(area[(a-1)/width ][b]=='.' || area[(a-1)/width ][b]== ' ' )){
             newa=a-1/width;
         }
-        else if((strcmp(&area[a][(b-1)/height], "." )==0)|| (strcmp(&area[a][(b-1)/height], " ")==0)){
+        else if(area[a][(b-1)/height]=='.'|| area[a][(b-1)/height]==' '){
             newb=b-1/height;
         }
-        else if((strcmp(&area[a][(b+1)/height], "." )==0)|| (strcmp(&area[a][(b+1)/height] , " ")==0) ){
+        else if(area[a][(b+1)/height]=='.'|| area[a][(b+1)/height]==' ' ){
             newb=b+1/height;
         }
 
-        if(strcmp(&area[newa][newb],".")==0){
-            strcpy(&area[newa][newb],"G.");
+        if(area[newa][newb]=='.'){
+            area[newa][newb]='G.';
         }
         else{
-            strcpy(&area[newa][newb],"G");
+            area[newa][newb]='G';
         }
 
         allghosts[i].coord.x=newa;

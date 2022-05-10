@@ -4,11 +4,11 @@
 #include <string.h>
 #include "structure.h"
 #include "init_ghosts.h"
-#include "move.h"
-#include "move_pac.h"
+/* #include "move.h"
+#include "move_pac.h"  */
 #define height 60
 #define width 30
-#define nb_ghosts 11
+#define nb_ghosts 40
 #define nb_lives 3
 #define nb_obstacles 50
 
@@ -40,23 +40,7 @@ void affichage(char area[width][height]){
 
 }
 
-/* void set_cursor_position(int x, int y)
-{
-   //Initialize the coordinates
-   COORD coord = { x, y };
-   //Set the position
-   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
 
-
-void hidecursor()
-{
-   HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-   CONSOLE_CURSOR_INFO info;
-   info.dwSize = 100;
-   info.bVisible = FALSE;
-   SetConsoleCursorInfo(consoleHandle, &info);
-} */
 
 
 int main(){
@@ -106,13 +90,20 @@ int main(){
    { "############################################################" }};
 
 
-affichage(area);
+//affichage(area);
    
 
-/* init_ghosts(allghosts,area);
+init_ghosts(allghosts,area);
+area[1][1]='P';
 
 
-affichage(area); */
+affichage(area); 
+
+while(1){
+    move(allghosts,pacman,area);
+    
+
+}
 
 
 }

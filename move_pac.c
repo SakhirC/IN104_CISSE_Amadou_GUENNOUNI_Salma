@@ -10,9 +10,9 @@
 
 
 void move_pac(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area[width][height]){
-    strcpy(&area[pacman.coord.x][pacman.coord.y]," ");
+    area[pacman.coord.x][pacman.coord.y]=' ';
     move(allghosts,  pacman, area);
-        if(strcmp(&area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny],"#")==0 || (strcmp(&area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny],"G")==0 )||(strcmp(&area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny],"G.")==0)){
+        if(area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='#' || area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='G' || area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='G.' ){
             pacman.coord.x=1;
             pacman.coord.y=1;
             pacman.lives=pacman.lives-1;
@@ -21,10 +21,10 @@ void move_pac(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area
         else{
             pacman.coord.x=pacman.coord.x+pacman.nx;
             pacman.coord.y=pacman.coord.y+pacman.ny;
-            if(strcmp(&area[pacman.coord.x][pacman.coord.y],".")==0){
+            if(area[pacman.coord.x][pacman.coord.y]=='.'){
                 pacman.food=pacman.food+1;
             }
-            strcpy(&area[pacman.coord.x][pacman.coord.y],"P");
+            area[pacman.coord.x][pacman.coord.y]='P';
         }
     
 }
