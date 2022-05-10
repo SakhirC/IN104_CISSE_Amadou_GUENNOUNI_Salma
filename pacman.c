@@ -4,8 +4,8 @@
 #include <string.h>
 #include "structure.h"
 #include "init_ghosts.h"
-/* #include "move.h"
-#include "move_pac.h"  */
+ #include "move.h"
+#include "move_pac.h"  
 #define height 60
 #define width 30
 #define nb_ghosts 40
@@ -101,7 +101,9 @@ affichage(area);
 
 while(1){
     move(allghosts,pacman,area);
-    
+    move_pac(allghosts,pacman,area);
+    check(pacman, area);
+   // Sleep( 1000 / 30 );
 
 }
 

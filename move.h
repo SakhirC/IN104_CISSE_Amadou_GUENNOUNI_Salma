@@ -8,7 +8,7 @@
 #include "structure.h"
 #define height 60
 #define width 30
-#define nb_ghosts 11
+#define nb_ghosts 40
 
 void move(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area[width][height]);
 

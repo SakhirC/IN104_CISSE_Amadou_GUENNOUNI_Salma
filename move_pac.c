@@ -2,17 +2,19 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+
 #include "structure.h"
+#include "move.h"
 
 #define height 60
 #define width 30
-#define nb_ghosts 11
+#define nb_ghosts 40
 
 
 void move_pac(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area[width][height]){
     area[pacman.coord.x][pacman.coord.y]=' ';
     move(allghosts,  pacman, area);
-        if(area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='#' || area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='G' || area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='G.' ){
+        if(area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='#' || area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='G' /*|| area[pacman.coord.x+pacman.nx][pacman.coord.y+pacman.ny]=='G.' */ ){
             pacman.coord.x=1;
             pacman.coord.y=1;
             pacman.lives=pacman.lives-1;
