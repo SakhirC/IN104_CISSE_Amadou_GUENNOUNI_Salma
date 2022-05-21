@@ -10,7 +10,7 @@
 #define width 30
 #define nb_ghosts 40
 
-void init_ghosts(struct ghost allghosts[nb_ghosts],char area[width][height]);
+void init_ghosts(struct ghost allghosts[nb_ghosts], char area[width][height]);
 
 #endif
 

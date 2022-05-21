@@ -10,6 +10,6 @@
 #define width 30
 #define nb_ghosts 40
 
-void move(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area[width][height]);
+void move(struct ghost allghosts[nb_ghosts],struct PacMan pacman, char area[width][height]);
 
 #endif

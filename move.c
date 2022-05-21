@@ -7,25 +7,25 @@
 #define width 30
 #define nb_ghosts 40
 
-void move(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area[width][height]){
+void move(struct ghost allghosts[nb_ghosts],struct PacMan pacman, char area[width][height]){
     int reponse;
     printf("Entrez 1 pour aller en haut, 2 pour le bas,3 pour la gauche et 4 pour lad roite p ");
     scanf("%d",&reponse);
     if(reponse==1){
-        pacman.nx=0;
-        pacman.ny=1;
-    }
-    else if(reponse==2){
-        pacman.nx=0;
-        pacman.ny=-1;
-    }
-    else if(reponse==3){
         pacman.nx=-1;
         pacman.ny=0;
     }
-    else if(reponse==4){
+    else if(reponse==2){
         pacman.nx=1;
         pacman.ny=0;
+    }
+    else if(reponse==3){
+        pacman.nx=0;
+        pacman.ny=-1;
+    }
+    else if(reponse==4){
+        pacman.nx=0;
+        pacman.ny=1;
     }
     else{
         pacman.nx=0;
@@ -37,29 +37,30 @@ void move(struct ghost allghosts[nb_ghosts], struct PacMan pacman, char area[wid
         int b=allghosts[i].coord.y;
         int newa=a;
         int newb=b;
-        if(area[(a+1)/width ][b]=='.' || area[(a+1)/width ][b]==' '){ 
-            newa=a+1/width;
+        if(area[(a+1)%width ][b]=='.' || area[(a+1)%width ][b]==' '){ 
+            newa=(a+1)%width;
         }
-        else if(area[(a-1)/width ][b]=='.' || area[(a-1)/width ][b]== ' ' ){
-            newa=a-1/width;
+        else if(area[(a-1)%width ][b]=='.' || area[(a-1)%width ][b]== ' ' ){
+            newa=(a-1)%width;
         }
-        else if(area[a][(b-1)/height]=='.'|| area[a][(b-1)/height]==' '){
-            newb=b-1/height;
+        else if(area[a][(b-1)%height]=='.'|| area[a][(b-1)%height]==' '){
+            newb=(b-1)%height;
         }
-        else if(area[a][(b+1)/height]=='.'|| area[a][(b+1)/height]==' ' ){
-            newb=b+1/height;
+        else if(area[a][(b+1)%height]=='.'|| area[a][(b+1)%height]==' ' ){
+            newb=(b+1)%height;
         }
 
         /* if(area[newa][newb]=='.'){
             area[newa][newb]='G.';
         }
-        else{ */
-            area[newa][newb]='G';
+        else{ */ 
+        area[a][b]='.';
+        area[newa][newb]='G';
         //}
 
         allghosts[i].coord.x=newa;
         allghosts[i].coord.y=newb;
 
     };
-
+     printf("%d \n",pacman.nx);
 }
