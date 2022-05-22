@@ -1,6 +1,6 @@
 #ifndef __STRUCTURE_H__
 #define __STRUCTURE_H__
-
+#include <stdbool.h>
 struct coor{
     int x;
     int y;

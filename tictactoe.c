@@ -113,19 +113,10 @@ int est_plein(int* grille) {
     return 1; // aucune case vide, grille est pleine
 }
 
-/* Fonction de test */
-void test_affichage() {
-     int* grille = creer_grille();
-     afficher(grille);
-     grille[3] = 1;
-     grille[7] = 2;
-     afficher(grille);
-     // On libère la mémoire de la grille
-     free(grille);
-}
+
 
 /* Programme principal */
-int main() {
+int play_tictactoe(){
     // On crée une grille vide
     int* grille = creer_grille();
     // Variable booléenne représentant si la partie est
@@ -170,4 +161,5 @@ int main() {
     }
     // On libère la mémoire de la grille
     free(grille);
+    return 0;
 }
