@@ -76,12 +76,12 @@ void level(int area[SIZE][SIZE]){
     
     //Suppression des chiffres de la grille en fonction de la difficulte
     for(int w=0;w<K;w++){
-        int j=rand()%9+1;
-        int i=rand()%9+1;
+        int j=rand()%9;
+        int i=rand()%9;
 
         while(area[i][j]==0){
-             j=rand()%9+1;
-             i=rand()%9+1;
+             j=rand()%9;
+             i=rand()%9;
         }
         area[i][j]=0;
 
@@ -224,10 +224,9 @@ void verification(int area[SIZE][SIZE], int grille_complete[SIZE][SIZE]){
         }
     }
     if (compteur==0) {
-        printf("vous avez gagné !");
+        printf("vous avez gagné !\n");
     }
-    affichage(grille_complete);
-    affichage(area);
+        affichage(area);
 }
 
 
@@ -262,18 +261,18 @@ int play_sudoku(){
     //copie
     copie(area,grille_complete);
 
-    affichage(grille_complete);
-    affichage(area);
+
 
     //definition du niveau de la grille
      level(area);
-    
+
     //remplissage progressif de la grille par l'utilisateur
     remplissage(area);
     
+
     //modification de la grille par l'utilisateur
     modification(area);
-
+    
 
     //Verification
     verification(area,grille_complete);
