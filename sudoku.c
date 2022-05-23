@@ -58,10 +58,10 @@ void level(int area[SIZE][SIZE]){
 
     int i;
     int K;
-    printf("Choisissez votre niveau 1=facile 2=intermediare 3=difficile : ");
+    printf("Choisissez votre niveau 1=facile 2=intermediaire 3=difficile : ");
     scanf("%d",&i);
     while(i!=1 && i!=2 && i!=3){
-        printf("Choisissez votre niveau 1=facile 2=intermediare 3=difficile : ");
+        printf("Choisissez votre niveau 1=facile 2=intermediaire 3=difficile : ");
         scanf("%d",&i);
     };
     if(i==1){
