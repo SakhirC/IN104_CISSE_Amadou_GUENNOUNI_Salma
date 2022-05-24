@@ -69,7 +69,7 @@ void init_ghosts(struct ghost allghosts[nb_ghosts], char area[width][height]) {
 struct ghost allghosts[nb_ghosts];
 
 
-//initiamisation du pacman
+//initialisation du pacman
 struct PacMan pacman = {
         {
              .x = 1,
@@ -119,7 +119,7 @@ char area [width][height]=
 };
 
 
-//Fonction qui permet de choisir la direction et de deplacer egalementles ghosts 
+//Fonction qui permet de choisir la direction et de deplacer egalement les ghosts 
 void move(){
         //Demande a l'utilisateur sa direction et modifie ainsi sa vitesse
         int reponse;
